@@ -29,33 +29,35 @@ void classifyStudents(int scores[], char targetGrade) {
 }
 
 
-int sumScores(int scores[]) {
+int sumScores(int scores[]) {  // sumScores라는 함수이다. 
 	int sum = 0;
-	for (int i = 0; i < STUDENTS; i++)
-		sum += scores[i];
+	for (int i = 0; i < STUDENTS; i++)  // 반복문 i가 STUDENTS(5) 보다 작을때까지 반복, 1씩 더해짐
+		sum += scores[i];  // sum = sum + scores[i] -> 점수값을 더해나가는 식
 		
-	return 0;
+	return sum;  // sum 값 반환
 }
 
 double averageScores(int scores[]) {
-	int sum = 0;
+	int sum = sumScores(scores);
 	int num = 5;
-	double average;
-	average = (double)sum / (double)num;
+	double average;  // double형
+	average = (double)sum / (double)num;  // 평균구하기, int형을 double형으로 형변환했다. 합에다가 num 나눠서 평균구하기.
 
+	return average;  // average 반환
 }
 
 
 void printRanks(int scores[]) {
-	int ranks = 1;
-	for (int i = 0; i < STUDENTS; i++) {
+// 2중 for문 사용
+	for (int i = 0; i < STUDENTS; i++) {  
+		int ranks = 1;
 		for (int j = 0; j < STUDENTS; j++) {
 			if (scores[i] >= scores[j])
-				ranks = ranks + 0;
+				ranks = ranks + 0;  // 만약 scores[i] >= scores[j] 라면 출력됨. 이때는 1등에서 변화가 없어도 되니까 ranks에 0더하기를 했다.
 			else
-				ranks = ranks + 1;
+				ranks = ranks + 1;  // scores[i] < scores[j] 일때 출력됨. 1등에 1 더해서 2등으로 내려가는 식으로 순위 하락을 만든다.
 		}
-		printf("%d 학생의 순위는 %d 입니다.\n", i + 1, ranks);
+		printf("%d 학생의 순위는 %d 입니다.\n", i + 1, ranks); 
 
 	}
 
@@ -86,7 +88,7 @@ int main() {
 
 	int sum = sumScores(scores);
 	double average = averageScores(scores);
-	printf("학생들의 점수의 총 합은 %d이고, 평균 값은 %lf입니다.\n", sum, average);
+	printf("학생들의 점수의 총 합은 %d이고, 평균 값은 %lf입니다.\n", sum, average);  // sum, average 집어넣어서 출력됨.
 
 	printRanks(scores);
 
