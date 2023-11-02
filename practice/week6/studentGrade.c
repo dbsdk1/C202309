@@ -3,7 +3,7 @@
 
 void classifyStudents(int scores[], char targetGrade) {
 	printf("학생 성적 분류:\n");
-	char grade = "";
+	char grade = ' ';
 	for (int i = 0; i < STUDENTS; i++) {  // i가 0부터 시작하고 한번 돌고나면 1씩 증가, i가 5보다 작을때까지 반복
 		if (scores[i] >= 90) {  // 배열, 만약 i에 0 들어감 -> 배열의 크기는 0이다.
 			grade = 'A';  // 만약 scores[i]가 90보다 크거나 작으면 성적은 A이다.
