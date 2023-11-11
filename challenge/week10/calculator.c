@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 void summation(double* value1, double* value2, double* result) {  // 역참조-> value1의 값에 접근을 한다.
-  *result = *value1 + *value2;
+  *result = *value1 + *value2;  // result값에 넣어짐
 }
-void subtraction(double* value1, double* value2, double* result) {
+void subtraction(double* value1, double* value2, double* result) {  // 값 반환 안함 (void)
   *result = *value1 - *value2;
 }
 void multification(double* value1, double* value2, double* result) {
